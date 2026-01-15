@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>GTM Contact Intelligence</title>
+  <link rel="stylesheet" href="css/popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🎯 GTM Intelligence</h1>
+      <p class="subtitle">LinkedIn Data Extractor</p>
+    </div>
+
+    <!-- Status -->
+    <div id="status" class="status hidden"></div>
+
+    <!-- API Configuration -->
+    <div class="section">
+      <label for="apiUrl">API URL:</label>
+      <input
+        type="text"
+        id="apiUrl"
+        value="http://localhost:3000"
+        placeholder="http://localhost:3000"
+      >
+    </div>
+
+    <div class="section">
+      <label for="contactId">Contact ID:</label>
+      <input
+        type="number"
+        id="contactId"
+        placeholder="Enter contact ID (or leave blank to create new)"
+      >
+      <small>Leave blank to create a new contact, or enter existing ID to update</small>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions">
+      <button id="extractBtn" class="btn btn-primary">
+        📊 Extract LinkedIn Data
+      </button>
+
+      <button id="submitBtn" class="btn btn-success hidden">
+        ✅ Send to API
+      </button>
+    </div>
+
+    <!-- Extracted Data Preview -->
+    <div id="preview" class="preview hidden">
+      <h3>Extracted Data:</h3>
+      <div id="previewContent"></div>
+    </div>
+
+    <!-- Help Text -->
+    <div class="help">
+      <details>
+        <summary>📖 How to use</summary>
+        <ol>
+          <li>Navigate to a LinkedIn profile page</li>
+          <li>Click "Extract LinkedIn Data"</li>
+          <li>Review the extracted data</li>
+          <li>Click "Send to API" to submit</li>
+        </ol>
+        <p><strong>Tip:</strong> For best results, scroll down the profile to load all sections before extracting.</p>
+      </details>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <small>v1.0.0 | <a href="https://github.com" target="_blank">Docs</a></small>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

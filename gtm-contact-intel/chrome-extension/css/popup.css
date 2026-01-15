@@ -1,0 +1,293 @@
+/**
+ * GTM Contact Intelligence - Popup Styles
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 400px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background: #f5f5f5;
+}
+
+.container {
+  padding: 16px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #0073b1;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0073b1;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Status Messages */
+.status {
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.status.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.status.info {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Form Sections */
+.section {
+  margin-bottom: 16px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #555;
+  font-size: 13px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0073b1;
+  box-shadow: 0 0 0 3px rgba(0, 115, 177, 0.1);
+}
+
+small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #0073b1;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #005885;
+}
+
+.btn-success {
+  background: #28a745;
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: #218838;
+}
+
+/* Preview */
+.preview {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.preview h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #0073b1;
+}
+
+.preview-section {
+  font-size: 13px;
+}
+
+.preview-item {
+  margin: 8px 0;
+  font-weight: 600;
+  color: #555;
+}
+
+.preview-data {
+  margin: 6px 0 12px 0;
+  padding: 8px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.preview-data div {
+  margin: 4px 0;
+}
+
+.preview-post {
+  margin: 8px 0;
+  padding: 8px;
+  background: #f8f9fa;
+  border-left: 3px solid #0073b1;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.preview-post strong {
+  color: #0073b1;
+}
+
+.preview-text {
+  margin-top: 4px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Help Section */
+.help {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+details {
+  cursor: pointer;
+}
+
+summary {
+  font-weight: 600;
+  color: #0073b1;
+  font-size: 13px;
+  user-select: none;
+}
+
+.help ol {
+  margin: 12px 0 8px 20px;
+  font-size: 12px;
+}
+
+.help li {
+  margin: 4px 0;
+}
+
+.help p {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 12px;
+  border-top: 1px solid #ddd;
+  color: #999;
+}
+
+.footer a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
