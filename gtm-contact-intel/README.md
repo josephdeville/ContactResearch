@@ -114,11 +114,40 @@ Each playbook includes:
 - Sample outreach message
 - Competitive context
 
+### Chrome Extension (New!)
+
+**One-click LinkedIn data extraction** - Extract profile and post data directly from LinkedIn pages.
+
+Since automated LinkedIn scraping is blocked by LinkedIn's anti-bot protection, we've built a Chrome extension for fast manual data entry:
+
+- **Extract**: Profile data + recent posts with one click
+- **Review**: Preview extracted data before submission
+- **Submit**: Send directly to API for signal generation
+- **Auto-Intelligence**: Automatically creates signals and playbooks
+
+**Quick Start:**
+```bash
+# 1. Install extension
+# Open chrome://extensions → Enable Developer Mode → Load unpacked
+# Select: gtm-contact-intel/chrome-extension/
+
+# 2. Navigate to LinkedIn profile
+# Example: https://www.linkedin.com/in/jchaydon
+
+# 3. Extract and submit
+# Click extension icon → Extract → Enter Contact ID → Submit
+```
+
+See [Chrome Extension Guide](chrome-extension/QUICK_START.md) for complete instructions.
+
 ## 📚 Documentation
 
 - [API Reference](docs/API.md) - Complete API documentation
 - [Deployment Guide](docs/DEPLOYMENT.md) - Production deployment instructions
 - [Examples](docs/EXAMPLES.md) - Usage examples and workflows
+- [Chrome Extension Quick Start](chrome-extension/QUICK_START.md) - 5-minute setup guide
+- [Chrome Extension Install Guide](docs/CHROME_EXTENSION_INSTALL.md) - Complete installation instructions
+- [Manual LinkedIn Entry](docs/LINKEDIN_MANUAL_ENTRY.md) - API-based manual data entry
 
 ## 🏗️ Architecture
 

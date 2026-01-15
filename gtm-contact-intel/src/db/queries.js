@@ -296,13 +296,13 @@ const researchJobQueries = {
   async updateJobStatus(jobId, status, error = null, results = null) {
     const result = await db.query(
       `UPDATE research_jobs
-       SET status = $2,
+       SET status = $2::varchar,
            error_message = $3,
-           results_summary = $4,
-           completed_at = CASE WHEN $2 IN ('completed', 'failed') THEN NOW() ELSE completed_at END
+           results_summary = $4::jsonb,
+           completed_at = CASE WHEN $2::varchar IN ('completed', 'failed') THEN NOW() ELSE completed_at END
        WHERE id = $1
        RETURNING *`,
-      [jobId, status, error, results]
+      [jobId, status, error, results ? JSON.stringify(results) : null]
     );
     return result.rows[0];
   },

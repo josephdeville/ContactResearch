@@ -124,8 +124,17 @@ router.get('/contacts/:contactId', async (req, res) => {
   try {
     const { contactId } = req.params;
 
+    // First get the contact to check company_domain
+    const contact = await contactQueries.getContactById(contactId);
+
+    if (!contact) {
+      return res.status(404).json({
+        error: 'Contact not found'
+      });
+    }
+
+    // Then get all other data in parallel
     const [
-      contact,
       linkedinProfile,
       linkedinPosts,
       githubActivity,
@@ -134,23 +143,16 @@ router.get('/contacts/:contactId', async (req, res) => {
       playbook,
       jobPostings
     ] = await Promise.all([
-      contactQueries.getContactById(contactId),
       linkedinQueries.getProfile(contactId),
       linkedinQueries.getRecentPosts(contactId, 10),
       githubQueries.getActivity(contactId),
       speakingQueries.getEngagements(contactId),
       signalScorer.getTopSignals(contactId, 10),
       playbookGenerator.generatePlaybook(contactId).then(r => r.playbook).catch(() => null),
-      contact?.company_domain
+      contact.company_domain
         ? companyQueries.getJobPostingsByCompany(contact.company_domain)
         : Promise.resolve([])
     ]);
-
-    if (!contact) {
-      return res.status(404).json({
-        error: 'Contact not found'
-      });
-    }
 
     res.json({
       contact,
