@@ -8,6 +8,7 @@ const db = require('../db/client');
 // Import routes
 const researchRoutes = require('./routes/research');
 const exportRoutes = require('./routes/export');
+const linkedinRoutes = require('./routes/linkedin');
 
 // Initialize Express app
 const app = express();
@@ -39,6 +40,7 @@ app.get('/health', (req, res) => {
 // API routes
 app.use('/api/research', researchRoutes);
 app.use('/api/export', exportRoutes);
+app.use('/api/linkedin', linkedinRoutes);
 
 // 404 handler
 app.use((req, res) => {
