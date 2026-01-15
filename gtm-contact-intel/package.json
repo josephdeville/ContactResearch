@@ -1,0 +1,33 @@
+{
+  "name": "gtm-contact-intel",
+  "version": "1.0.0",
+  "description": "Production-ready GTM contact intelligence system with LinkedIn-first research",
+  "main": "src/api/server.js",
+  "scripts": {
+    "start": "node src/api/server.js",
+    "dev": "node --watch src/api/server.js",
+    "db:setup": "psql -U $DB_USER -d $DB_NAME -f src/db/schema.sql",
+    "test": "node tests/api.test.js"
+  },
+  "keywords": ["gtm", "sales", "intelligence", "linkedin", "contact-research"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "json2csv": "^6.0.0",
+    "cheerio": "^1.0.0-rc.12",
+    "natural": "^6.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
