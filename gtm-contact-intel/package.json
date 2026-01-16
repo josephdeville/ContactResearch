@@ -7,7 +7,10 @@
     "start": "node src/api/server.js",
     "dev": "node --watch src/api/server.js",
     "db:setup": "psql -U $DB_USER -d $DB_NAME -f src/db/schema.sql",
-    "test": "node tests/api.test.js"
+    "db:queue": "psql -U $DB_USER -d $DB_NAME -f src/db/linkedin-queue-schema.sql",
+    "test": "node tests/api.test.js",
+    "automation": "node linkedin-automation.js",
+    "automation:status": "node linkedin-automation.js status"
   },
   "keywords": ["gtm", "sales", "intelligence", "linkedin", "contact-research"],
   "author": "",
@@ -22,7 +25,8 @@
     "express-rate-limit": "^7.1.5",
     "json2csv": "^5.0.7",
     "cheerio": "^1.0.0-rc.12",
-    "natural": "^6.10.0"
+    "natural": "^6.10.0",
+    "puppeteer": "^21.6.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

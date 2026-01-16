@@ -1,0 +1,10 @@
+# Example LinkedIn URLs for Automation
+# Add one URL per line
+# Lines starting with # are ignored
+
+# Example: VP of Sales at target accounts
+https://www.linkedin.com/in/example-vp-sales
+https://www.linkedin.com/in/example-cro
+https://www.linkedin.com/in/example-director-sales
+
+# Add your target LinkedIn profiles below:
