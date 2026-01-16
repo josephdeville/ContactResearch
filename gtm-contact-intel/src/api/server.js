@@ -9,6 +9,7 @@ const db = require('../db/client');
 const researchRoutes = require('./routes/research');
 const exportRoutes = require('./routes/export');
 const linkedinRoutes = require('./routes/linkedin');
+const clayRoutes = require('./routes/clay');
 
 // Initialize Express app
 const app = express();
@@ -41,6 +42,7 @@ app.get('/health', (req, res) => {
 app.use('/api/research', researchRoutes);
 app.use('/api/export', exportRoutes);
 app.use('/api/linkedin', linkedinRoutes);
+app.use('/api/clay', clayRoutes);
 
 // 404 handler
 app.use((req, res) => {
@@ -82,6 +84,9 @@ Available endpoints:
   GET  /api/linkedin/engagement-patterns/:contactId - Get engagement analysis
   GET  /api/export/clay/:contactId                - Export to Clay format
   GET  /api/export/csv                            - Export multiple contacts to CSV
+  POST /api/clay/send/:contactId                  - Send contact to Clay webhook
+  POST /api/clay/send-batch                       - Send multiple contacts to Clay
+  GET  /api/clay/preview/:contactId               - Preview Clay webhook data
 
 LinkedIn scraping is ACTIVE - respecting rate limits
 `);
