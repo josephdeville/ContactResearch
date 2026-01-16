@@ -4,8 +4,17 @@
  */
 
 const axios = require('axios');
+const https = require('https');
+const http = require('http');
 const queries = require('../db/queries');
 const playbookGenerator = require('../processors/playbook-generator');
+
+// Create custom agents that bypass the global proxy
+// This allows direct connections to Clay without going through Anthropic's proxy
+const httpAgentNoProxy = new http.Agent();
+const httpsAgentNoProxy = new https.Agent({
+  keepAlive: true
+});
 
 /**
  * Format contact data for Clay webhook
@@ -93,16 +102,22 @@ async function formatForClay(contactId) {
 
 /**
  * Send contact data to Clay webhook
+ * Uses custom HTTP agents to bypass Anthropic's global proxy
  */
 async function sendToClay(contactId, webhookUrl) {
   try {
     const clayData = await formatForClay(contactId);
 
+    // Use custom agents that bypass the global proxy configuration
+    // This allows direct connection to api.clay.com
     const response = await axios.post(webhookUrl, clayData, {
       headers: {
         'Content-Type': 'application/json'
       },
-      timeout: 10000 // 10 second timeout
+      timeout: 10000, // 10 second timeout
+      httpAgent: httpAgentNoProxy,
+      httpsAgent: httpsAgentNoProxy,
+      proxy: false // Explicitly disable proxy
     });
 
     return {
