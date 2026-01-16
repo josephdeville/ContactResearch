@@ -2,11 +2,7 @@
 # Send GTM Contact Intelligence to Clay via Webhook
 
 # Your Clay webhook URL
-CLAY_WEBHOOK_URL=curl 'https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-fa59bcce-da9c-40f0-9e7d-d680d84f95f7' \
-  -X POST \
-  -H 'Content-Type: application/json' \
-  -d '{"email":"john@stripe.com"}'
-
+CLAY_WEBHOOK_URL=https://api.clay.com/v3/sources/webhook/pull-in-data-from-a-webhook-fa59bcce-da9c-40f0-9e7d-d680d84f95f7
 # API base URL
 API_URL="http://localhost:3000"
 
