@@ -5,8 +5,7 @@
 
 const axios = require('axios');
 const queries = require('../db/queries');
-const linkedinQueries = require('../db/linkedin-queries');
-const { getPlaybookForContact } = require('../processors/playbook-generator');
+const playbookGenerator = require('../processors/playbook-generator');
 
 /**
  * Format contact data for Clay webhook
@@ -18,10 +17,10 @@ async function formatForClay(contactId) {
     throw new Error(`Contact ${contactId} not found`);
   }
 
-  const linkedinProfile = await linkedinQueries.getProfile(contactId);
-  const linkedinPosts = await linkedinQueries.getRecentPosts(contactId, 10);
+  const linkedinProfile = await queries.linkedinQueries.getProfile(contactId);
+  const linkedinPosts = await queries.linkedinQueries.getRecentPosts(contactId, 10);
   const signals = await queries.signalQueries.getSignalsByContact(contactId);
-  const playbook = await getPlaybookForContact(contactId);
+  const playbook = await playbookGenerator.generatePlaybook(contactId);
 
   // Get top signal
   const topSignal = signals.length > 0
